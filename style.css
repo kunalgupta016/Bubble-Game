@@ -1,85 +1,10 @@
-/* *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: cursive;
-}
-html,body{
-height: 100%;
-width:100%;
-}
-
-#main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color:rgba(16, 74, 55, 0.807);
-}
-#panel{
-    height: 80%;
-    width: 80%;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    
-}
-#ptop{
-    display: flex;
-    color: white;
-    justify-content: space-between;
-    padding: 0px 30%;
-    align-items: center;
-    height: 80px;
-    width: 100%;
-    background-color: rgb(49, 140, 140);
-}
-.elem{
-    width: 10%;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.box{
-    padding: 10px 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    color: rgb(10, 36, 10);
-    font-weight: 700;
-    font-size: 20px;
-    line-height: normal;
-}
-#pbtm{
-    width: 100%;
-    height: calc(100% - 80px);
-    padding: 10px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.bubble{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgb(33, 118, 33);
-    color: white;
-}
-.bubble:hover{
-    cursor: pointer;
-    background-color: rgb(76, 169, 33);
-} */
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 html, body {
     height: 100%;
     width: 100%;
@@ -111,7 +36,7 @@ html, body {
     display: flex;
     color: white;
     justify-content: space-between;
-    padding: 0px 20%;
+    padding: 0 20%;
     align-items: center;
     height: 80px;
     width: 100%;
@@ -134,6 +59,7 @@ html, body {
     font-weight: 700;
     font-size: 22px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: pop 0.5s ease-in-out;
 }
 
 #pbtm {
@@ -161,6 +87,25 @@ html, body {
     transition: all 0.3s ease;
 }
 
+.restart-btn {
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.restart-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+}
+
+
 .bubble:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -168,13 +113,106 @@ html, body {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Animation for score updates */
 @keyframes pop {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
 
-.box {
-    animation: pop 0.5s ease-in-out;
+/* Tablet devices (max-width: 1024px) */
+@media (max-width: 1024px) {
+    #panel {
+        width: 90%;
+        height: 85%;
+    }
+    #ptop {
+        padding: 0 15%;
+        height: 70px;
+    }
+    .box {
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+    .elem {
+        gap: 15px;
+    }
+    #pbtm {
+        padding: 12px;
+        gap: 10px;
+    }
+    .bubble {
+        width: 45px;
+        height: 45px;
+        font-size: 17px;
+    }
+    .restart-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    @media (max-width: 768px) {
+        .restart-btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+    }
+    #panel {
+        width: 95%;
+        height: 90%;
+    }
+    #ptop {
+        padding: 0 10%;
+        height: 60px;
+    }
+    .box {
+        padding: 10px 16px;
+        font-size: 18px;
+    }
+    .elem {
+        width: auto;
+        gap: 10px;
+    }
+    #pbtm {
+        padding: 10px;
+        gap: 8px;
+    }
+    .bubble {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* Very small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    @media (max-width: 480px) {
+        .restart-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    }
+    #ptop {
+        flex-direction: column;
+        padding: 10px 5%;
+        height: auto;
+    }
+    .box {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+    #pbtm {
+        padding: 8px;
+        gap: 6px;
+    }
+    .bubble {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
 }
